@@ -35,9 +35,12 @@ class ContentView : UIView {
                                        height: frame.height/2)
         let progresBarFrameHeight = CGFloat(40)//fixed
         self.progresBar.frame = CGRect(x: frame.origin.x, y: frame.height-progresBarFrameHeight, width: frame.width, height: progresBarFrameHeight)
-        self.textContentSetup()
         self.progresBarInsert()
+        
+        self.textContentSetup()
+        
         self.insertContentToTextLayers()
+        
     }
     
     
@@ -47,25 +50,16 @@ class ContentView : UIView {
     }
     func progresBarInsert(){
         
-        UIColor.blackColor().setStroke()
-        self.progresBar.backgroundColor = UIColor.lightGrayColor().CGColor
         
-        let progresruler = UIBezierPath()
+        //self.progresBar.backgroundColor = UIColor.lightGrayColor().CGColor
         
-        progresruler.moveToPoint( CGPoint(x: self.progresBar.frame.origin.x + 20,
-            y: self.progresBar.frame.height/2 ))
-        progresruler.addLineToPoint(CGPoint(x: self.progresBar.frame.origin.x + self.progresBar.frame.width - 20, y: self.progresBar.frame.height/2))
-        progresruler.lineWidth = 2
-        progresruler.stroke()
-        
-        //progresBar.addSublayer(progresruler)
-        self.layer.addSublayer(self.progresBar)
         
     }
     
     func textContentSetup () {
+        
         //alpha
-        self.alphaWindowText.fontSize = 25
+        self.alphaWindowText.fontSize = 20
         self.alphaWindowText.frame = CGRect(x: 20,
                                             y: self.alphaWindow.frame.height/2,
                                             width: self.alphaWindow.frame.width-40,
@@ -96,7 +90,8 @@ class ContentView : UIView {
         
         self.betaWindow.addSublayer(self.betaWindowText)
         
-        
+        self.alphaWindow.backgroundColor = UIColor.clearColor().CGColor
+        self.betaWindow.backgroundColor = UIColor.clearColor().CGColor
         self.layer.addSublayer(self.betaWindow)
         self.layer.addSublayer(self.alphaWindow)
         

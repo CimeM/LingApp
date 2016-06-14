@@ -12,6 +12,7 @@ class ReaderViewController: UIViewController {
 
     
     @IBOutlet var contentView: ContentView!;
+    @IBOutlet var progressBar: ProgressBarView!;
     
     var screenHeight = CGFloat(0)
     var screenWidth = CGFloat(0)
@@ -36,8 +37,21 @@ class ReaderViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        contentView = ContentView(frame: view.frame)
-        //contentView.frame =  view.frame
+        
+        let progressfieldHeight = CGFloat(40)
+        contentView = ContentView(frame: CGRect(x: view.frame.origin.x,
+            y: view.frame.origin.y,
+            width: view.frame.width, height: view.frame.height - progressfieldHeight))
+        contentView.backgroundColor = UIColor.whiteColor()
+        
+        progressBar = ProgressBarView()
+        progressBar.frame = CGRect(x: view.frame.origin.x,
+                                   y: view.frame.height - progressfieldHeight,
+                                   width: view.frame.width,
+                                   height: progressfieldHeight)
+        progressBar.backgroundColor = UIColor.clearColor()
+        progressBar.status(15, all: 20)
+        view.addSubview(self.progressBar)
         view.addSubview(self.contentView)
     }
     
@@ -46,8 +60,8 @@ class ReaderViewController: UIViewController {
         let leftScrollButton = UIButton()
         leftScrollButton.frame = ScrollbuttonFrame(buttonSide: .Left).frame
         leftScrollButton.addTarget(self, action: #selector(ReaderViewController.backButton), forControlEvents: .TouchUpInside)
-        leftScrollButton.backgroundColor = UIColor.clearColor()
-        leftScrollButton.alpha = 1
+        leftScrollButton.backgroundColor = UIColor.lightGrayColor()
+        leftScrollButton.alpha = 0.5
         
         view.addSubview(leftScrollButton)
         
@@ -55,8 +69,8 @@ class ReaderViewController: UIViewController {
         rightScrollButton.frame =  ScrollbuttonFrame(buttonSide: .Right).frame
         
         rightScrollButton.addTarget(self, action: #selector(ReaderViewController.forwardButton), forControlEvents: .TouchUpInside)
-        rightScrollButton.backgroundColor = UIColor.clearColor()
-        rightScrollButton.alpha = 1
+        rightScrollButton.backgroundColor = UIColor.darkGrayColor()
+        rightScrollButton.alpha = 0.5
         view.addSubview(rightScrollButton)
         
         
