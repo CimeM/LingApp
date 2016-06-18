@@ -1,0 +1,6 @@
+platform :ios, '9.0'
+target 'wordLearning' do
+    use_frameworks!
+    pod 'TouchDraw', '~> 1.2'
+    pod 'FGTranslator'
+end
