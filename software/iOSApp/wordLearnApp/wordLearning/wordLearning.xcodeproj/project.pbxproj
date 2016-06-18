@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B750C2ECE10AF7DA6F4DD27 /* Pods_wordLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3260CD25386047983A638BEF /* Pods_wordLearning.framework */; };
+		5B31F16E1D145D7D0074B24F /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F16D1D145D7D0074B24F /* ListVC.swift */; };
+		5B31F1701D145DDF0074B24F /* TranslatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */; };
+		5B31F1721D147B8A0074B24F /* TranslatorUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */; };
+		5B31F1741D1482380074B24F /* DrawingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F1731D1482380074B24F /* DrawingUIView.swift */; };
+		5B7805D91D140B1E001F7729 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5B7805D81D140B1E001F7729 /* Podfile */; };
 		5BDCC4431D12F9DA001608CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4421D12F9DA001608CE /* AppDelegate.swift */; };
-		5BDCC4451D12F9DA001608CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4441D12F9DA001608CE /* ViewController.swift */; };
+		5BDCC4451D12F9DA001608CE /* DrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4441D12F9DA001608CE /* DrawVC.swift */; };
 		5BDCC4481D12F9DA001608CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCC4461D12F9DA001608CE /* Main.storyboard */; };
 		5BDCC44B1D12F9DA001608CE /* wordLearning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4491D12F9DA001608CE /* wordLearning.xcdatamodeld */; };
 		5BDCC44D1D12F9DA001608CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCC44C1D12F9DA001608CE /* Assets.xcassets */; };
@@ -16,14 +22,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3260CD25386047983A638BEF /* Pods_wordLearning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordLearning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3963358E6DD7A4755A3256B5 /* Pods-wordLearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordLearning.release.xcconfig"; path = "Pods/Target Support Files/Pods-wordLearning/Pods-wordLearning.release.xcconfig"; sourceTree = "<group>"; };
+		5B31F16D1D145D7D0074B24F /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorVC.swift; sourceTree = "<group>"; };
+		5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorUIView.swift; sourceTree = "<group>"; };
+		5B31F1731D1482380074B24F /* DrawingUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingUIView.swift; sourceTree = "<group>"; };
+		5B7805D81D140B1E001F7729 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5BDCC43F1D12F9DA001608CE /* wordLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDCC4421D12F9DA001608CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BDCC4441D12F9DA001608CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5BDCC4441D12F9DA001608CE /* DrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawVC.swift; sourceTree = "<group>"; };
 		5BDCC4471D12F9DA001608CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BDCC44A1D12F9DA001608CE /* wordLearning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wordLearning.xcdatamodel; sourceTree = "<group>"; };
 		5BDCC44C1D12F9DA001608CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BDCC44F1D12F9DA001608CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BDCC4511D12F9DA001608CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA84AC8D2B525B4A90787E39 /* Pods-wordLearning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordLearning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wordLearning/Pods-wordLearning.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,101 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B750C2ECE10AF7DA6F4DD27 /* Pods_wordLearning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4ACEB3B6D5381FBB487BEB0F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA84AC8D2B525B4A90787E39 /* Pods-wordLearning.debug.xcconfig */,
+				3963358E6DD7A4755A3256B5 /* Pods-wordLearning.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		574D8F1FC1E6DE76A5EBE9CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3260CD25386047983A638BEF /* Pods_wordLearning.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B7805EB1D145A5C001F7729 /* draw */ = {
+			isa = PBXGroup;
+			children = (
+				5BDCC4441D12F9DA001608CE /* DrawVC.swift */,
+			);
+			name = draw;
+			sourceTree = "<group>";
+		};
+		5B7805EC1D145A5E001F7729 /* translate */ = {
+			isa = PBXGroup;
+			children = (
+				5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */,
+				5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */,
+				5B31F1731D1482380074B24F /* DrawingUIView.swift */,
+			);
+			name = translate;
+			sourceTree = "<group>";
+		};
+		5B7805ED1D145A5F001F7729 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				5B31F16D1D145D7D0074B24F /* ListVC.swift */,
+			);
+			name = list;
+			sourceTree = "<group>";
+		};
+		5B7805EE1D145B14001F7729 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				5BDCC4461D12F9DA001608CE /* Main.storyboard */,
+				5B7805ED1D145A5F001F7729 /* list */,
+				5B7805EC1D145A5E001F7729 /* translate */,
+				5B7805EB1D145A5C001F7729 /* draw */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		5B7805EF1D145B19001F7729 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5B7805F01D145B1A001F7729 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5B7805F11D145B39001F7729 /* aditional */ = {
+			isa = PBXGroup;
+			children = (
+				5BDCC4421D12F9DA001608CE /* AppDelegate.swift */,
+				5BDCC44E1D12F9DA001608CE /* LaunchScreen.storyboard */,
+				5BDCC4511D12F9DA001608CE /* Info.plist */,
+				5BDCC4491D12F9DA001608CE /* wordLearning.xcdatamodeld */,
+				5BDCC44C1D12F9DA001608CE /* Assets.xcassets */,
+			);
+			name = aditional;
+			sourceTree = "<group>";
+		};
 		5BDCC4361D12F9DA001608CE = {
 			isa = PBXGroup;
 			children = (
+				5B7805D81D140B1E001F7729 /* Podfile */,
 				5BDCC4411D12F9DA001608CE /* wordLearning */,
 				5BDCC4401D12F9DA001608CE /* Products */,
+				4ACEB3B6D5381FBB487BEB0F /* Pods */,
+				574D8F1FC1E6DE76A5EBE9CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +154,10 @@
 		5BDCC4411D12F9DA001608CE /* wordLearning */ = {
 			isa = PBXGroup;
 			children = (
-				5BDCC4421D12F9DA001608CE /* AppDelegate.swift */,
-				5BDCC4441D12F9DA001608CE /* ViewController.swift */,
-				5BDCC4461D12F9DA001608CE /* Main.storyboard */,
-				5BDCC44C1D12F9DA001608CE /* Assets.xcassets */,
-				5BDCC44E1D12F9DA001608CE /* LaunchScreen.storyboard */,
-				5BDCC4511D12F9DA001608CE /* Info.plist */,
-				5BDCC4491D12F9DA001608CE /* wordLearning.xcdatamodeld */,
+				5B7805EE1D145B14001F7729 /* V */,
+				5B7805F01D145B1A001F7729 /* Controller */,
+				5B7805EF1D145B19001F7729 /* Model */,
+				5B7805F11D145B39001F7729 /* aditional */,
 			);
 			path = wordLearning;
 			sourceTree = "<group>";
@@ -74,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BDCC4541D12F9DA001608CE /* Build configuration list for PBXNativeTarget "wordLearning" */;
 			buildPhases = (
+				77B9ACC1B48F4E499A701753 /* 📦 Check Pods Manifest.lock */,
 				5BDCC43B1D12F9DA001608CE /* Sources */,
 				5BDCC43C1D12F9DA001608CE /* Frameworks */,
 				5BDCC43D1D12F9DA001608CE /* Resources */,
+				C219A2647F7177CB4DDB609B /* 📦 Embed Pods Frameworks */,
+				42872B093120B430FBCB799E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,19 +226,72 @@
 			files = (
 				5BDCC4501D12F9DA001608CE /* LaunchScreen.storyboard in Resources */,
 				5BDCC44D1D12F9DA001608CE /* Assets.xcassets in Resources */,
+				5B7805D91D140B1E001F7729 /* Podfile in Resources */,
 				5BDCC4481D12F9DA001608CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42872B093120B430FBCB799E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wordLearning/Pods-wordLearning-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77B9ACC1B48F4E499A701753 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C219A2647F7177CB4DDB609B /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wordLearning/Pods-wordLearning-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5BDCC43B1D12F9DA001608CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BDCC4451D12F9DA001608CE /* ViewController.swift in Sources */,
+				5B31F1741D1482380074B24F /* DrawingUIView.swift in Sources */,
+				5B31F16E1D145D7D0074B24F /* ListVC.swift in Sources */,
+				5BDCC4451D12F9DA001608CE /* DrawVC.swift in Sources */,
 				5BDCC4431D12F9DA001608CE /* AppDelegate.swift in Sources */,
+				5B31F1701D145DDF0074B24F /* TranslatorVC.swift in Sources */,
+				5B31F1721D147B8A0074B24F /* TranslatorUIView.swift in Sources */,
 				5BDCC44B1D12F9DA001608CE /* wordLearning.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,23 +405,27 @@
 		};
 		5BDCC4551D12F9DA001608CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA84AC8D2B525B4A90787E39 /* Pods-wordLearning.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wordLearning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.martincimerman.wordLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wordLearning-Bridging-file.h";
 			};
 			name = Debug;
 		};
 		5BDCC4561D12F9DA001608CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3963358E6DD7A4755A3256B5 /* Pods-wordLearning.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wordLearning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.martincimerman.wordLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wordLearning-Bridging-file.h";
 			};
 			name = Release;
 		};
@@ -293,6 +448,7 @@
 				5BDCC4561D12F9DA001608CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
