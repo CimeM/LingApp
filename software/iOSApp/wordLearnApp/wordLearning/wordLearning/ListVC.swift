@@ -23,9 +23,31 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         self.tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    @IBAction func unwindToHistoryListVC(sender: UIStoryboardSegue) {
+    
+//        if let sourceViewController = sender.sourceViewController as? TranslatorVC, newWord = sourceViewController.selectedWord {
+//        
+//        
+//        }
+//        
+//        
+//        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//        }
+//        else{
+//        
+//            userWordHistory.append(newWord)
+//            let newIndexPath = NSIndexPath(forRow: userWordHistory.count, inSection: 0)
+//            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+//        
+//        }
+    
+    
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         print(" selected cell: \(indexPath.row)")
+        
         self.selectedWordfromTable = userWordHistory[indexPath.row]
         
         performSegueWithIdentifier("openTranslateView", sender: self)
@@ -51,6 +73,13 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         if (segue.identifier == "openTranslateView") {
             let vc = segue.destinationViewController as! TranslatorVC
             vc.selectedWord = self.selectedWordfromTable
+            
+            
+            if self.selectedWordfromTable != "" {
+                    vc.wordInHistoryList = true
+            }
+            
+            self.selectedWordfromTable = ""
         }
     }
     

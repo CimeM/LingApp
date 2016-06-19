@@ -12,6 +12,7 @@ import UIKit
 class TranslatorVC: UIViewController {
 
     var selectedWord = ""
+    var wordInHistoryList = false
     
     @IBOutlet var TranslatorView: TranslatorUIView!
     @IBOutlet var DrawingView: DrawingUIView!
@@ -59,23 +60,47 @@ class TranslatorVC: UIViewController {
         
         self.TranslatorView = TranslatorUIView(frame: translatorFrame)
         
-        //self.DrawingView = DrawingUIView(frame: drawingFrame)
+        if wordInHistoryList == true {
+            self.TranslatorView.selectedWord = self.selectedWord
+            
+        }
         
         view.addSubview(TranslatorView)
     }
     
     func navbuttonsSetup() {
-        let saveButton = UIBarButtonItem(title: "Save", style: .Done , target: self, action: nil)
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: .Done , target: self, action: #selector(TranslatorVC.saveWord))
         let drawButton = UIBarButtonItem(title: "Draw", style: .Done , target: self, action: #selector(TranslatorVC.transitionToDraw))
         
-        self.navigationItem.rightBarButtonItems = [saveButton, drawButton]
+        
+        
+        if wordInHistoryList == true {
+            self.navigationItem.rightBarButtonItem =  drawButton
+        }
+        else {
+            self.navigationItem.rightBarButtonItems = [saveButton, drawButton]
+        }
+        
+       
     }
+    
+    
+    func saveWord (){
+    
+        
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    
+    }
+    
     
     func frameSetup(){
         self.translatorFrame =  CGRect(x: self.view.frame.origin.x,
                                        y: self.view.frame.origin.y + ((self.navigationController?.accessibilityFrame.height)! + (navigationController?.accessibilityFrame.origin.y)!) + 80,
                                        width: self.view.frame.width,
                                        height: 250)
+        
         
 //        self.drawingFrame = self.view.frame
 //        self.drawingFrame.origin.y = (translatorFrame.height + translatorFrame.origin.y)

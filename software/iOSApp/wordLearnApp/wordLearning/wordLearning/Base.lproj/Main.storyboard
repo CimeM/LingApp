@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--ListVC-->
+        <!--History-->
         <scene sceneID="lEL-6P-4Hx">
             <objects>
                 <viewController id="uE2-e4-T6o" customClass="ListVC" customModule="wordLearning" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,8 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="wUc-yw-feZ">
+                    <navigationItem key="navigationItem" title="History" id="wUc-yw-feZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="aa6-H4-JcJ"/>
                         <barButtonItem key="rightBarButtonItem" title="New" id="GNq-wZ-xpW">
                             <connections>
                                 <segue destination="w9F-w9-5Ja" kind="show" identifier="openTranslateView" id="Fed-Ug-jn0"/>
@@ -50,9 +51,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="5Gf-Od-pPC" id="ptj-oI-Zih"/>
+                        <segue destination="1ZP-4t-qp9" kind="unwind" unwindAction="unwindToHistoryListVC:" id="yxC-dn-cs7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjP-1B-Bv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1ZP-4t-qp9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-497" y="349"/>
         </scene>
