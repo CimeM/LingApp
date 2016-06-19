@@ -12,7 +12,9 @@ import FGTranslator
 class TranslatorUIView: UIView {
 
     var translator = FGTranslator(bingAzureClientId: "fgtranslator-demo", secret: "GrsgBiUCKACMB+j2TVOJtRboyRT8Q9WQHBKJuMKIxsU=")
+
     
+    @IBOutlet var activitiIndicator: UIActivityIndicatorView?
     @IBOutlet var alphaInputField: UITextField?
     @IBOutlet var betaInputField: UITextField?
     @IBOutlet var submitButton: UIButton?
@@ -40,7 +42,7 @@ class TranslatorUIView: UIView {
         let submitButtonStart = CGPoint(x: 20, y: (inputTextFieldHeight*2) + 5*2)
         
         self.alphaInputField = UITextField(frame: CGRect(origin: alphaTextWindowStart, size: textFieldSize))
-        //self.alphaInputField?.backgroundColor = UIColor.lightGrayColor()
+        self.alphaInputField?.backgroundColor = UIColor.lightGrayColor()
         self.alphaInputField?.layer.cornerRadius = 8
         alphaInputField!.layer.borderColor = (UIColor.clearColor()).CGColor;
         alphaInputField!.layer.borderWidth = 1.0
@@ -48,7 +50,7 @@ class TranslatorUIView: UIView {
         
         
         self.betaInputField = UITextField(frame: CGRect(origin: betaTextWindowStart, size: textFieldSize))
-        //betaInputField!.backgroundColor = UIColor.lightGrayColor()
+        betaInputField!.backgroundColor = UIColor.lightGrayColor()
         betaInputField?.layer.cornerRadius = 8
         betaInputField!.layer.borderColor = (UIColor.clearColor()).CGColor;
         betaInputField!.layer.borderWidth = 1.0
@@ -71,15 +73,55 @@ class TranslatorUIView: UIView {
         addSubview(submitButton!)
         
         
+//        self.activitiIndicator! = UIActivityIndicatorView(frame: CGRect(origin: submitButtonStart, size: textFieldSize))
+//        addSubview(self.activitiIndicator!)
+//        self.activitiIndicator!.isAnimating()
+        
+        
+        
     }
     
-    // on btn press
+    func exit () {
+        
+        
+        
+    }
+    
     func translate() {
-       
+        
+        self.translator.translateText(alphaInputField?.text, completion: {(error, translation,sourceLanguage) in
+        
+            if (error != nil) {
+                
+                
+            }
+            else {
+                self.betaInputField?.text = translation
+                self.selectedWord = translation
+            }
+        
+        })
+        
+        
         //self.selectedWord = (self.betaInputField?.text)!
         
     }
     
+    func getListofLanguages() {
+        
+        self.translator.supportedLanguages({(error, languageCodes) in
+        
+            if (error != nil) {
+                print(error)
+            }
+            else {
+                print("\(languageCodes)")
+            }
+            
+        
+        })
+        
+    }
     
     
 }

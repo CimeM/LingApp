@@ -113,12 +113,18 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
         
     }
     
+
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
     }
     
     func done(){
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     func undo() {
@@ -128,8 +134,6 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
     func clear() {
         drawView.clearDrawing()
     }
-    
-
     
     func randomColor(sender: AnyObject) {
 

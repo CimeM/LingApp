@@ -225,11 +225,13 @@
                     <connections>
                         <outlet property="colorButton" destination="itu-lS-glJ" id="IaB-gq-xMX"/>
                         <outlet property="drawView" destination="bS0-XN-vEf" id="40p-Vw-WWx"/>
+                        <segue destination="VPj-H3-Srd" kind="unwind" unwindAction="unwindToTranslatorVC:" id="91j-pk-Exg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VPj-H3-Srd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="455" y="349"/>
+            <point key="canvasLocation" x="428" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W2J-CZ-8hv">

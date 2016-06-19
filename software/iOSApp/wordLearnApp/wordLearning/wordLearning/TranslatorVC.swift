@@ -25,16 +25,26 @@ class TranslatorVC: UIViewController {
         
     }
     
+    @IBAction func unwindToTranslatorVC(segue: UIStoryboardSegue) {}
     
+    func retrieveTranslatedWord () {
+        
+        self.selectedWord = self.TranslatorView.selectedWord
+        
+    }
     
     func transitionToDraw() {
         
         performSegueWithIdentifier("showDrawVC", sender: self)
         
+        print("word saved")
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        self.retrieveTranslatedWord()
+        
         if (segue.identifier == "showDrawVC") {
             let vc = segue.destinationViewController as! DrawVC
             vc.selectedWord = self.TranslatorView.selectedWord
