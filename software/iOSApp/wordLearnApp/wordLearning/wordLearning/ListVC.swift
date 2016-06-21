@@ -10,11 +10,11 @@ import UIKit
 
 class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
-
+    
     
     @IBOutlet var tableView: UITableView!
     
-    let userWordHistory : [String] = ["uno", "duo", "tree"]
+    var userWordHistory : [String] = ["uno", "duo", "tree"]
     var selectedWordfromTable = ""
     
     override func viewDidLoad() {
@@ -23,25 +23,40 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         self.tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    @IBAction func unwindToHistoryListVC(sender: UIStoryboardSegue) {
+    @IBAction func unwindToListVC(sender: UIStoryboardSegue) {
     
-//        if let sourceViewController = sender.sourceViewController as? TranslatorVC, newWord = sourceViewController.selectedWord {
+        
+        if let sourceViewController = sender.sourceViewController as? TranslatorVC {
+            
+            
+            var newWord = sourceViewController.translatedWord
+            print(newWord)
+                self.userWordHistory.append(newWord)
+                
+                //print(userWordHistory)
+            
+            self.tableView.reloadData()
+//                let newIndexPath = NSIndexPath(forRow: self.userWordHistory.count, inSection: 0)
+//                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+//                
+            
+            
+            
+        }
+//
 //        
-//        
-//        }
-//        
-//        
-//        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//        }
-//        else{
-//        
-//            userWordHistory.append(newWord)
-//            let newIndexPath = NSIndexPath(forRow: userWordHistory.count, inSection: 0)
-//            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-//        
-//        }
     
     
+    }
+    
+    
+    
+    
+    
+    func saveWord() -> Bool {
+        
+        
+        return true
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -81,6 +96,8 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
             
             self.selectedWordfromTable = ""
         }
+        
+        
     }
     
     

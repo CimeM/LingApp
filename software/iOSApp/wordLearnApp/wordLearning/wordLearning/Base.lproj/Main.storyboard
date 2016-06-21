@@ -75,9 +75,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showDrawVC" id="q6q-py-auZ"/>
+                        <segue destination="bev-fv-mKT" kind="unwind" identifier="unwindToListVCID" unwindAction="unwindToListVC:" id="FW0-wP-LhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cx3-hJ-Khr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bev-fv-mKT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-19" y="349"/>
         </scene>

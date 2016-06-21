@@ -11,9 +11,13 @@ import UIKit
 
 class TranslatorVC: UIViewController {
 
-    var selectedWord = ""
+    var selectedWord = "" // TODO -> change to translatedWord
     var wordInHistoryList = false
     
+    var translatedWord = ""
+    var inputWord = ""
+    
+    @IBOutlet var saveButton: UIBarButtonItem?
     @IBOutlet var TranslatorView: TranslatorUIView!
     @IBOutlet var DrawingView: DrawingUIView!
 
@@ -38,11 +42,19 @@ class TranslatorVC: UIViewController {
         
         performSegueWithIdentifier("showDrawVC", sender: self)
         
-        print("word saved")
+        //print("word saved")
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        self.translatedWord = TranslatorView.betaInputField?.text! ?? ""
+        
+        self.inputWord = TranslatorView.alphaInputField?.text ?? ""
+            
+        
+        
+        
         
         self.retrieveTranslatedWord()
         
@@ -70,7 +82,7 @@ class TranslatorVC: UIViewController {
     
     func navbuttonsSetup() {
         
-        let saveButton = UIBarButtonItem(title: "Save", style: .Done , target: self, action: #selector(TranslatorVC.saveWord))
+        self.saveButton = UIBarButtonItem(title: "Save", style: .Done , target: self, action: #selector(TranslatorVC.saveWord))
         let drawButton = UIBarButtonItem(title: "Draw", style: .Done , target: self, action: #selector(TranslatorVC.transitionToDraw))
         
         
@@ -79,7 +91,7 @@ class TranslatorVC: UIViewController {
             self.navigationItem.rightBarButtonItem =  drawButton
         }
         else {
-            self.navigationItem.rightBarButtonItems = [saveButton, drawButton]
+            self.navigationItem.rightBarButtonItems = [saveButton!, drawButton]
         }
         
        
@@ -87,10 +99,8 @@ class TranslatorVC: UIViewController {
     
     
     func saveWord (){
-    
-        
-        
-        self.navigationController?.popViewControllerAnimated(true)
+        //dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("unwindToListVCID", sender: self)
     
     }
     
