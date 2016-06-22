@@ -29,7 +29,7 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
         
         navbuttonsSetup()
         toolspaceSetup()
-        
+        wordLabelSetup()
         drawView.delegate = self
         
 //        undoButton.enabled = false
@@ -72,15 +72,25 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
         drawView.setColor(localColor)
         
     }
+
+    func wordLabelSetup(){
+        
+        let labelWidth = CGFloat(300)
+        let labelHeight = CGFloat(60)
+        
+        
+        self.foreginWordLabel = UILabel(frame: CGRect(x: (view.frame.width/2) - (labelWidth/2), y: labelHeight, width: labelWidth, height: labelHeight))
+        self.foreginWordLabel.text = " Draw what the word \(self.selectedWord) reminds you of."
+        self.foreginWordLabel.numberOfLines = 2
+        self.foreginWordLabel.textAlignment = .Center
+        self.foreginWordLabel.font = .systemFontOfSize(12)
+        self.foreginWordLabel.textColor = UIColor.lightGrayColor()
+        
+        view.addSubview(foreginWordLabel)
+        
+    }
     
     func toolspaceSetup() {
-        
-        self.foreginWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
-        self.foreginWordLabel.text = selectedWord
-        self.foreginWordLabel.textAlignment = .Center
-        self.foreginWordLabel.font = .systemFontOfSize(26)
-        self.foreginWordLabel.textColor = UIColor.blackColor()
-        
         
         self.localColor = randomColor()
         drawView.setColor(localColor)

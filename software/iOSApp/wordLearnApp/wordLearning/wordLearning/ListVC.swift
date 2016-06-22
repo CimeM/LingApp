@@ -14,90 +14,87 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
     
-    var userWordHistory : [String] = ["uno", "duo", "tree"]
+    
+    var wordList = [Word]()
+    
     var selectedWordfromTable = ""
+    var selectedRow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        //sample
+        self.loadSampleWords()
         
         self.tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    
+    
+    func loadSampleWords () {
+        let word1 = Word(inputWord: "uno", translatedWord: "one", fromLanguage: "", toLanguage: "", imageReference: "")!
+        let word2 = Word(inputWord: "due", translatedWord: "two", fromLanguage: "", toLanguage: "", imageReference: "")!
+        let word3 = Word(inputWord: "tree", translatedWord: "three", fromLanguage: "", toLanguage: "", imageReference: "")!
+    
+        self.wordList += [word1, word2, word3]
+    }
+    
     
     @IBAction func unwindToListVC(sender: UIStoryboardSegue) {
     
         
         if let sourceViewController = sender.sourceViewController as? TranslatorVC {
             
+            let retrievedWord = sourceViewController.word!
             
-            var newWord = sourceViewController.translatedWord
-            print(newWord)
-                self.userWordHistory.append(newWord)
-                
-                //print(userWordHistory)
+            self.wordList.append(retrievedWord)
             
             self.tableView.reloadData()
-//                let newIndexPath = NSIndexPath(forRow: self.userWordHistory.count, inSection: 0)
-//                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-//                
-            
-            
             
         }
-//
-//        
-    
-    
     }
     
     
-    
-    
-    
     func saveWord() -> Bool {
-        
-        
         return true
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(" selected cell: \(indexPath.row)")
-        
-        self.selectedWordfromTable = userWordHistory[indexPath.row]
+        self.selectedRow = indexPath.row
         
         performSegueWithIdentifier("openTranslateView", sender: self)
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.userWordHistory.count
+
+        return self.wordList.count
         
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //var cell: UITableViewCell = (self.tableView?.dequeueReusableCellWithIdentifier("cell"))! as UITableViewCell
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = self.userWordHistory[indexPath.row]
+        
+        let word = self.wordList[indexPath.row]
+        cell.textLabel?.text = word.translatedWord
         return cell
     }
     
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if (segue.identifier == "openTranslateView") {
             let vc = segue.destinationViewController as! TranslatorVC
-            vc.selectedWord = self.selectedWordfromTable
             
+            vc.word = self.wordList[self.selectedRow]
             
             if self.selectedWordfromTable != "" {
                     vc.wordInHistoryList = true
             }
-            
             self.selectedWordfromTable = ""
         }
-        
-        
     }
     
     

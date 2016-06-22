@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4B750C2ECE10AF7DA6F4DD27 /* Pods_wordLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3260CD25386047983A638BEF /* Pods_wordLearning.framework */; };
+		5B208E1A1D1A8CD50095D347 /* NSUDComunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B208E191D1A8CD50095D347 /* NSUDComunication.swift */; };
+		5B208E1C1D1A8FED0095D347 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B208E1B1D1A8FED0095D347 /* WordList.swift */; };
 		5B31F16E1D145D7D0074B24F /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F16D1D145D7D0074B24F /* ListVC.swift */; };
 		5B31F1701D145DDF0074B24F /* TranslatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */; };
 		5B31F1721D147B8A0074B24F /* TranslatorUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */; };
-		5B31F1741D1482380074B24F /* DrawingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F1731D1482380074B24F /* DrawingUIView.swift */; };
 		5B7805D91D140B1E001F7729 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5B7805D81D140B1E001F7729 /* Podfile */; };
 		5BDCC4431D12F9DA001608CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4421D12F9DA001608CE /* AppDelegate.swift */; };
 		5BDCC4451D12F9DA001608CE /* DrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4441D12F9DA001608CE /* DrawVC.swift */; };
@@ -24,10 +25,11 @@
 /* Begin PBXFileReference section */
 		3260CD25386047983A638BEF /* Pods_wordLearning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordLearning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3963358E6DD7A4755A3256B5 /* Pods-wordLearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordLearning.release.xcconfig"; path = "Pods/Target Support Files/Pods-wordLearning/Pods-wordLearning.release.xcconfig"; sourceTree = "<group>"; };
+		5B208E191D1A8CD50095D347 /* NSUDComunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUDComunication.swift; sourceTree = "<group>"; };
+		5B208E1B1D1A8FED0095D347 /* WordList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		5B31F16D1D145D7D0074B24F /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorVC.swift; sourceTree = "<group>"; };
 		5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorUIView.swift; sourceTree = "<group>"; };
-		5B31F1731D1482380074B24F /* DrawingUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingUIView.swift; sourceTree = "<group>"; };
 		5B7805D81D140B1E001F7729 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5BDCC43F1D12F9DA001608CE /* wordLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDCC4421D12F9DA001608CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 			children = (
 				5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */,
 				5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */,
-				5B31F1731D1482380074B24F /* DrawingUIView.swift */,
 			);
 			name = translate;
 			sourceTree = "<group>";
@@ -109,6 +110,7 @@
 		5B7805EF1D145B19001F7729 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B208E191D1A8CD50095D347 /* NSUDComunication.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -116,6 +118,7 @@
 		5B7805F01D145B1A001F7729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5B208E1B1D1A8FED0095D347 /* WordList.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -286,13 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B31F1741D1482380074B24F /* DrawingUIView.swift in Sources */,
 				5B31F16E1D145D7D0074B24F /* ListVC.swift in Sources */,
 				5BDCC4451D12F9DA001608CE /* DrawVC.swift in Sources */,
 				5BDCC4431D12F9DA001608CE /* AppDelegate.swift in Sources */,
+				5B208E1A1D1A8CD50095D347 /* NSUDComunication.swift in Sources */,
 				5B31F1701D145DDF0074B24F /* TranslatorVC.swift in Sources */,
 				5B31F1721D147B8A0074B24F /* TranslatorUIView.swift in Sources */,
 				5BDCC44B1D12F9DA001608CE /* wordLearning.xcdatamodeld in Sources */,
+				5B208E1C1D1A8FED0095D347 /* WordList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,14 +11,12 @@ import FGTranslator
 
 class TranslatorUIView: UIView {
 
-    var translator = FGTranslator(bingAzureClientId: "fgtranslator-demo", secret: "GrsgBiUCKACMB+j2TVOJtRboyRT8Q9WQHBKJuMKIxsU=")
-
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView?
     @IBOutlet var alphaInputField: UITextField?
     @IBOutlet var betaInputField: UITextField?
     @IBOutlet var submitButton: UIButton?
-    var selectedWord = ""
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,6 +27,14 @@ class TranslatorUIView: UIView {
         super.init(coder: aDecoder)!
     }
     
+    func getTranslator() -> FGTranslator{
+        
+        let createdTranslator = FGTranslator(bingAzureClientId: "fgtranslator-demo", secret: "GrsgBiUCKACMB+j2TVOJtRboyRT8Q9WQHBKJuMKIxsU=")
+        
+        return createdTranslator
+    }
+    
+    
     func setup(){
         
         self.backgroundColor = UIColor.clearColor()
@@ -36,7 +42,6 @@ class TranslatorUIView: UIView {
         let inputTextFieldHeight = CGFloat(70)
         
         let textFieldSize = CGSize(width: self.frame.width - 40, height: inputTextFieldHeight)
-        print(frame)
         let alphaTextWindowStart = CGPoint(x: 20, y: 0)
         let betaTextWindowStart = CGPoint(x: 20, y: inputTextFieldHeight + 5 )
         let submitButtonStart = CGPoint(x: 20, y: (inputTextFieldHeight*2) + 5*2)
@@ -48,7 +53,8 @@ class TranslatorUIView: UIView {
         alphaInputField!.layer.borderWidth = 1.0
         alphaInputField!.font = .systemFontOfSize(26)
         alphaInputField?.textAlignment = .Center
-        alphaInputField?.text = self.selectedWord
+        self.alphaInputField?.autocorrectionType = .No
+        
         
         self.betaInputField = UITextField(frame: CGRect(origin: betaTextWindowStart, size: textFieldSize))
         betaInputField!.backgroundColor = UIColor.clearColor()
@@ -91,35 +97,60 @@ class TranslatorUIView: UIView {
     
     func translate() {
         
-        print(self.alphaInputField?.text)
+        
+        
         self.betaInputField?.text = ""
         self.submitButton?.enabled = false
         self.submitButton?.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.activityIndicator!.startAnimating()
-        self.translator.translateText(alphaInputField?.text, completion: {(error, translation,sourceLanguage) in
+        
+        let localTranslator = self.getTranslator()
+        
+        localTranslator.translateText(alphaInputField?.text, completion: {(error, translation,sourceLanguage) in
         
             if (error != nil) {
                 
-                
+                print(error)
             }
             else {
+                
+                
                 self.betaInputField?.text = translation
-                self.selectedWord = translation
                 self.activityIndicator!.stopAnimating()
                 self.submitButton?.enabled = true
                 self.submitButton?.layer.borderColor = UIColor.blackColor().CGColor
+                
+                //self.detectLanguage((self.alphaInputField?.text)!)
             }
         
         })
         
-        
-        //self.selectedWord = (self.betaInputField?.text)!
-        
     }
+    
+    
+    func detectLanguage(text: String) -> String {
+        
+        let localTranslator = self.getTranslator()
+        
+        localTranslator.detectLanguage(text, completion: {(error, detectedSource, confidence) in
+            
+            if (error != nil) {}
+            else{
+                print(detectedSource)
+                print(confidence)
+                
+                
+            }
+        })
+        
+        return "nope"
+    }
+    
     
     func getListofLanguages() {
         
-        self.translator.supportedLanguages({(error, languageCodes) in
+        let localTranslator = self.getTranslator()
+        localTranslator.supportedLanguages({(error, languageCodes) in
         
             if (error != nil) {
                 print(error)

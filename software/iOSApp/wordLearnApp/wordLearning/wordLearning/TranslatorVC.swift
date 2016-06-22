@@ -14,27 +14,46 @@ class TranslatorVC: UIViewController {
     var selectedWord = "" // TODO -> change to translatedWord
     var wordInHistoryList = false
     
-    var translatedWord = ""
-    var inputWord = ""
+    var word :Word?
+    
     
     @IBOutlet var saveButton: UIBarButtonItem?
     @IBOutlet var TranslatorView: TranslatorUIView!
-    @IBOutlet var DrawingView: DrawingUIView!
+    //@IBOutlet var DrawingView: DrawingUIView!
 
     var translatorFrame =   CGRect(x: 0, y: 0, width: 0, height: 0)
     var drawingFrame =      CGRect(x: 0, y: 0, width: 0, height: 0)
     
+    
     override func viewDidLoad() {
         
         navbuttonsSetup()
+        //define UIview frame
+        frameSetup()
+        
+        //create view
+        translatorViewSetup()
         
     }
     
     @IBAction func unwindToTranslatorVC(segue: UIStoryboardSegue) {}
     
-    func retrieveTranslatedWord () {
+    //rename to retrieve word detalis
+    func retrieveTranslatedWord () -> Word{
         
-        self.selectedWord = self.TranslatorView.selectedWord
+        // TODO retrieve languages and image
+        let word = Word(inputWord: (self.TranslatorView.alphaInputField!.text)!,
+                         translatedWord: (self.TranslatorView.betaInputField!.text)!,
+                         fromLanguage: "",
+                         toLanguage: "",
+                         imageReference: "")
+        
+        print(self.TranslatorView.alphaInputField!.text)
+        print(self.TranslatorView.betaInputField!.text)
+        print(word)
+        return word!
+        
+        
         
     }
     
@@ -42,42 +61,41 @@ class TranslatorVC: UIViewController {
         
         performSegueWithIdentifier("showDrawVC", sender: self)
         
-        //print("word saved")
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        self.translatedWord = TranslatorView.betaInputField?.text! ?? ""
-        
-        self.inputWord = TranslatorView.alphaInputField?.text ?? ""
-            
-        
-        
-        
-        
-        self.retrieveTranslatedWord()
+        self.word = self.retrieveTranslatedWord()
         
         if (segue.identifier == "showDrawVC") {
             let vc = segue.destinationViewController as! DrawVC
-            vc.selectedWord = self.TranslatorView.selectedWord
+            vc.selectedWord = self.word?.translatedWord ?? ""
+            
         }
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         
         
-        frameSetup()
+    }
+    
+    func translatorViewSetup() {
         
+        // create Translator UIView
         self.TranslatorView = TranslatorUIView(frame: translatorFrame)
         
+        view.addSubview(TranslatorView)
+
+        // if user selects a word from the list, write the word into the field
         if wordInHistoryList == true {
-            self.TranslatorView.selectedWord = self.selectedWord
             
+            
+            self.TranslatorView.alphaInputField?.text = self.word?.inputWord
+            
+            self.TranslatorView.betaInputField?.text = self.word?.translatedWord
         }
         
-        view.addSubview(TranslatorView)
     }
     
     func navbuttonsSetup() {
@@ -85,15 +103,12 @@ class TranslatorVC: UIViewController {
         self.saveButton = UIBarButtonItem(title: "Save", style: .Done , target: self, action: #selector(TranslatorVC.saveWord))
         let drawButton = UIBarButtonItem(title: "Draw", style: .Done , target: self, action: #selector(TranslatorVC.transitionToDraw))
         
-        
-        
         if wordInHistoryList == true {
             self.navigationItem.rightBarButtonItem =  drawButton
         }
         else {
             self.navigationItem.rightBarButtonItems = [saveButton!, drawButton]
         }
-        
        
     }
     
@@ -112,9 +127,7 @@ class TranslatorVC: UIViewController {
                                        height: 250)
         
         
-//        self.drawingFrame = self.view.frame
-//        self.drawingFrame.origin.y = (translatorFrame.height + translatorFrame.origin.y)
-//        //self.drawingFrame.height = self.view.frame.height - drawingFrame.origin.y
+        
     }
     
 }
