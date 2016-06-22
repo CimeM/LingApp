@@ -44,8 +44,8 @@ class TranslatorVC: UIViewController {
         // TODO retrieve languages and image
         let word = Word(inputWord: (self.TranslatorView.alphaInputField!.text)!,
                          translatedWord: (self.TranslatorView.betaInputField!.text)!,
-                         fromLanguage: "",
-                         toLanguage: "",
+                         fromLanguage: self.TranslatorView.fromLanguage,
+                         toLanguage: self.TranslatorView.toLanguage,
                          imageReference: "")
         
         print(self.TranslatorView.alphaInputField!.text)
@@ -97,6 +97,7 @@ class TranslatorVC: UIViewController {
         }
         
     }
+    
     
     func navbuttonsSetup() {
         

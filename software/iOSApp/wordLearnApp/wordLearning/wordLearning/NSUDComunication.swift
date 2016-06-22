@@ -11,7 +11,22 @@ import Foundation
 class NSUSerDefaultsComunication {
     
     
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
+    
+    
+    
+    func saveArrayToNS() -> Bool{
+        
+        let array = ["",""]
+        
+        userDefaults.setObject(array, forKey:"array")
+        
+        userDefaults.synchronize()
+
+        
+        return true
+    }
     
     
 }

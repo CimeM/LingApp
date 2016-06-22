@@ -17,6 +17,9 @@ class TranslatorUIView: UIView {
     @IBOutlet var betaInputField: UITextField?
     @IBOutlet var submitButton: UIButton?
     
+    var language = ""
+    var fromLanguage = ""
+    var toLanguage = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -97,8 +100,6 @@ class TranslatorUIView: UIView {
     
     func translate() {
         
-        
-        
         self.betaInputField?.text = ""
         self.submitButton?.enabled = false
         self.submitButton?.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -120,7 +121,10 @@ class TranslatorUIView: UIView {
                 self.submitButton?.enabled = true
                 self.submitButton?.layer.borderColor = UIColor.blackColor().CGColor
                 
-                //self.detectLanguage((self.alphaInputField?.text)!)
+                self.detectLanguage(self.alphaInputField!.text!, toLanguage: false)
+                
+                self.detectLanguage(self.betaInputField!.text!, toLanguage: true)
+                
             }
         
         })
@@ -128,7 +132,7 @@ class TranslatorUIView: UIView {
     }
     
     
-    func detectLanguage(text: String) -> String {
+    func detectLanguage(text: String, toLanguage: Bool) {
         
         let localTranslator = self.getTranslator()
         
@@ -136,14 +140,19 @@ class TranslatorUIView: UIView {
             
             if (error != nil) {}
             else{
-                print(detectedSource)
-                print(confidence)
+                
+                if toLanguage == true {
+                    self.toLanguage = detectedSource
+                }
+                else {
+                    self.fromLanguage = detectedSource
+                }
                 
                 
             }
+            
         })
-        
-        return "nope"
+       
     }
     
     

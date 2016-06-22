@@ -79,6 +79,7 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         
         let word = self.wordList[indexPath.row]
         cell.textLabel?.text = word.translatedWord
+        cell.detailTextLabel?.text = "\(word.inputWord) (\(word.fromLanguage))"
         return cell
     }
     
