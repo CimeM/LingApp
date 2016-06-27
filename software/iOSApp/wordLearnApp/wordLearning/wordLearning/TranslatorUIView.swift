@@ -100,6 +100,11 @@ class TranslatorUIView: UIView {
     
     func translate() {
         
+        
+        if self.alphaInputField?.text == "" {
+            return
+        }
+        
         self.betaInputField?.text = ""
         self.submitButton?.enabled = false
         self.submitButton?.layer.borderColor = UIColor.lightGrayColor().CGColor

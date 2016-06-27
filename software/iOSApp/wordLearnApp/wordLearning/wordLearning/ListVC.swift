@@ -11,24 +11,44 @@ import UIKit
 class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
     
-    
+
     @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var newButton: UIBarButtonItem!
     
     var wordList = [Word]()
     
     var selectedWordfromTable = ""
     var selectedRow = 0
     
+    var librarian = NSUSerDefaultsComunication()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         //sample
-        self.loadSampleWords()
+        //self.loadSampleWords()
+        
+        self.loadSavedWords()
         
         self.tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        
+        
+        
     }
     
+    
+    func loadSavedWords(){
+        
+        self.wordList = self.librarian.loadWordList()
+        
+    }
+    
+    func saveWords(){
+        
+        self.librarian.saveWordList(self.wordList)
+        
+    }
     
     
     func loadSampleWords () {
@@ -51,6 +71,8 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
             
             self.tableView.reloadData()
             
+            self.saveWords() //to nsUserDefaults
+            
         }
     }
     
@@ -58,6 +80,7 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     func saveWord() -> Bool {
         return true
     }
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -70,8 +93,8 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return self.wordList.count
-        
     }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -83,18 +106,33 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            wordList.removeAtIndex(indexPath.row)
+            self.saveWords()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        else if editingStyle == .Insert {
+            
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "openTranslateView") {
+            
             let vc = segue.destinationViewController as! TranslatorVC
             
-            vc.word = self.wordList[self.selectedRow]
             
-            if self.selectedWordfromTable != "" {
-                    vc.wordInHistoryList = true
+            if sender !== newButton {
+                vc.word = self.wordList[self.selectedRow]
+                vc.wordInHistoryList = true
             }
-            self.selectedWordfromTable = ""
+            
         }
     }
     

@@ -59,7 +59,10 @@ class TranslatorVC: UIViewController {
     
     func transitionToDraw() {
         
-        performSegueWithIdentifier("showDrawVC", sender: self)
+        if self.TranslatorView.betaInputField?.text != "" {
+                performSegueWithIdentifier("showDrawVC", sender: self)
+        }
+        
         
     }
     
@@ -94,6 +97,11 @@ class TranslatorVC: UIViewController {
             self.TranslatorView.alphaInputField?.text = self.word?.inputWord
             
             self.TranslatorView.betaInputField?.text = self.word?.translatedWord
+        }
+        else {
+            //self.TranslatorView.alphaInputField?.text = self.word?.inputWord
+            
+            //self.TranslatorView.betaInputField?.text = self.word?.translatedWord
         }
         
     }

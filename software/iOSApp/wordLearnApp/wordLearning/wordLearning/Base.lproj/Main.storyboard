@@ -42,7 +42,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="History" id="wUc-yw-feZ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="aa6-H4-JcJ"/>
                         <barButtonItem key="rightBarButtonItem" title="New" id="GNq-wZ-xpW">
                             <connections>
                                 <segue destination="w9F-w9-5Ja" kind="show" identifier="openTranslateView" id="Fed-Ug-jn0"/>
@@ -50,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="newButton" destination="GNq-wZ-xpW" id="Q8E-AC-Ric"/>
                         <outlet property="tableView" destination="5Gf-Od-pPC" id="ptj-oI-Zih"/>
                         <segue destination="1ZP-4t-qp9" kind="unwind" unwindAction="unwindToHistoryListVC:" id="yxC-dn-cs7"/>
                     </connections>

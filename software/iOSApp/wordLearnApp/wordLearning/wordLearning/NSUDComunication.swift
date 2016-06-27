@@ -54,17 +54,19 @@ class NSUSerDefaultsComunication {
         var wordList = [Word]()
         let numberOfLoops = decodingArray.count/5
         
-        for n in 0...numberOfLoops {
+        if numberOfLoops > 0 {
+            for n in 0...(numberOfLoops-1) {
+                let word = Word(inputWord: decodingArray[0+(n*5)],
+                                translatedWord: decodingArray[1+(n*5)],
+                                fromLanguage: decodingArray[2+(n*5)],
+                                toLanguage: decodingArray[3+(n*5)],
+                                imageReference: decodingArray[4+(n*5)])!
+                
+                wordList.append(word)
             
-            let word = Word(inputWord: decodingArray[0+(n*5)],
-                            translatedWord: decodingArray[1+(n*5)],
-                            fromLanguage: decodingArray[2+(n*5)],
-                            toLanguage: decodingArray[3+(n*5)],
-                            imageReference: decodingArray[4+(n*5)])!
-            
-            wordList.append(word)
-            
+            }
         }
+        
         
         return wordList
         
@@ -74,7 +76,7 @@ class NSUSerDefaultsComunication {
     func loadArrayFromNS() -> [String] {
         
         var wordList = [String]()
-        wordList = userDefaults.objectForKey("wordListid") as! [String]
+        wordList = userDefaults.objectForKey("wordListid") as? [String] ?? []
         return wordList
     }
     
