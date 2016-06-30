@@ -32,9 +32,6 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         
         self.tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        
-        
-        
     }
     
     
@@ -98,11 +95,19 @@ class ListVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        var editor = DocumentEditor()
+        
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         
         let word = self.wordList[indexPath.row]
         cell.textLabel?.text = word.translatedWord
         cell.detailTextLabel?.text = "\(word.inputWord) (\(word.fromLanguage))"
+        
+        var backgroundImagePath = editor.getImage(word.translatedWord)
+        if backgroundImagePath != "" {
+                cell.imageView?.image = UIImage(contentsOfFile: editor.getImage(word.translatedWord))
+        }
+        
         return cell
     }
     

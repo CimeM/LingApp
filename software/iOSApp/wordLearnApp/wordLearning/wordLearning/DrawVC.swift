@@ -23,6 +23,9 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
     
     @IBOutlet var foreginWordLabel: UILabel!
     
+    var editor = DocumentEditor()
+    
+    var backgroundImagePath : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,20 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
 //        undoButton.enabled = false
 //        redoButton.enabled = false
 //        clearButton.enabled = false
+        
+        
+        
+//        // image save test
+//        
+//        var editor = DocumentEditor()
+//        editor.saveImageDocumentDirectory("fluki", theImage: UIImage(named: "fluki")!)
+        
+
+        self.backgroundImagePath = self.editor.getImage(self.selectedWord)
+        if self.backgroundImagePath != "" {
+            drawView.backgroundColor = UIColor(patternImage: UIImage(contentsOfFile: self.backgroundImagePath!)!)
+        }
+        
         
     }
     
@@ -123,8 +140,6 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
         
     }
     
-
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -134,7 +149,13 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
     }
     
     func done(){
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        saveDrawing()
+        
+        
+        self.performSegueWithIdentifier("unwindToTranslatorVC", sender: self)
+        // TBD fix segue
+        //self.navigationController?.popViewControllerAnimated(true)
         
     }
     func undo() {
@@ -185,5 +206,32 @@ class DrawVC: UIViewController, TouchDrawViewDelegate {
     
     func clearDisabled() {
         //self.clearButton.enabled = false
+    }
+    func saveDrawing(){
+        
+        var bottomImage : UIImage?
+        
+        let topImage = drawView.exportDrawing()
+        
+        if self.backgroundImagePath != ""{
+            bottomImage = UIImage(contentsOfFile: self.backgroundImagePath!)!
+        }
+        else {
+            bottomImage = topImage
+        }
+        
+        let size = topImage.size // CGSize(width: 300, height: 300)
+        UIGraphicsBeginImageContext(size)
+        
+        let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        bottomImage!.drawInRect(areaSize)
+        
+        topImage.drawInRect(areaSize) //.drawInRect(areaSize, blendMode: kCGBlendModeNormal, alpha: 0.8)
+        
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.editor.saveImageDocumentDirectory(self.selectedWord, theImage: newImage)
+        
     }
 }

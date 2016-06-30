@@ -13,6 +13,7 @@
 		5B31F16E1D145D7D0074B24F /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F16D1D145D7D0074B24F /* ListVC.swift */; };
 		5B31F1701D145DDF0074B24F /* TranslatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */; };
 		5B31F1721D147B8A0074B24F /* TranslatorUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */; };
+		5B65CE141D25359F00D7277E /* DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65CE131D25359F00D7277E /* DocumentEditor.swift */; };
 		5B7805D91D140B1E001F7729 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5B7805D81D140B1E001F7729 /* Podfile */; };
 		5BDCC4431D12F9DA001608CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4421D12F9DA001608CE /* AppDelegate.swift */; };
 		5BDCC4451D12F9DA001608CE /* DrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCC4441D12F9DA001608CE /* DrawVC.swift */; };
@@ -30,6 +31,7 @@
 		5B31F16D1D145D7D0074B24F /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		5B31F16F1D145DDF0074B24F /* TranslatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorVC.swift; sourceTree = "<group>"; };
 		5B31F1711D147B8A0074B24F /* TranslatorUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslatorUIView.swift; sourceTree = "<group>"; };
+		5B65CE131D25359F00D7277E /* DocumentEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentEditor.swift; sourceTree = "<group>"; };
 		5B7805D81D140B1E001F7729 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5BDCC43F1D12F9DA001608CE /* wordLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDCC4421D12F9DA001608CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,13 @@
 				3260CD25386047983A638BEF /* Pods_wordLearning.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B65CE121D25355100D7277E /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Documents;
 			sourceTree = "<group>";
 		};
 		5B7805EB1D145A5C001F7729 /* draw */ = {
@@ -111,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				5B208E191D1A8CD50095D347 /* NSUDComunication.swift */,
+				5B65CE131D25359F00D7277E /* DocumentEditor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -138,6 +148,7 @@
 		5BDCC4361D12F9DA001608CE = {
 			isa = PBXGroup;
 			children = (
+				5B65CE121D25355100D7277E /* Documents */,
 				5B7805D81D140B1E001F7729 /* Podfile */,
 				5BDCC4411D12F9DA001608CE /* wordLearning */,
 				5BDCC4401D12F9DA001608CE /* Products */,
@@ -296,6 +307,7 @@
 				5B31F1701D145DDF0074B24F /* TranslatorVC.swift in Sources */,
 				5B31F1721D147B8A0074B24F /* TranslatorUIView.swift in Sources */,
 				5BDCC44B1D12F9DA001608CE /* wordLearning.xcdatamodeld in Sources */,
+				5B65CE141D25359F00D7277E /* DocumentEditor.swift in Sources */,
 				5B208E1C1D1A8FED0095D347 /* WordList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

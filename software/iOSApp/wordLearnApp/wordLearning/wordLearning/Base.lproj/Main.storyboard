@@ -230,7 +230,7 @@
                     <connections>
                         <outlet property="colorButton" destination="itu-lS-glJ" id="IaB-gq-xMX"/>
                         <outlet property="drawView" destination="bS0-XN-vEf" id="40p-Vw-WWx"/>
-                        <segue destination="VPj-H3-Srd" kind="unwind" unwindAction="unwindToTranslatorVC:" id="91j-pk-Exg"/>
+                        <segue destination="VPj-H3-Srd" kind="unwind" identifier="unwindToTranslatorVC" unwindAction="unwindToTranslatorVC:" id="Txe-5q-SLq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
